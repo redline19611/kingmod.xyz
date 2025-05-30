@@ -1,160 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games files Download Website</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mod Games Landing Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 <script type="text/javascript">
-    var OSFVO_blC_LzCgUc={"it":4300776,"key":"6acd6"};
+    var hsKGA_ttP_EMzGBc={"it":4399727,"key":"418d8"};
 </script>
-<script src="https://dlk457skl57zp.cloudfront.net/a4729a3.js"></script>
-    <style>
-        :root {
-            --primary-color: #4f46e5;
-            --secondary-color: #6366f1;
-            --ios-color: #007AFF;
-            --android-color: #3DDC84;
-            --bg-dark: #1f2937;
-            --bg-darker: #111827;
-        }
+<script src="https://dlk457skl57zp.cloudfront.net/737dc61.js"></script>
+  <style>
+    /* Custom styles to replicate React JSX structure and effects */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #2e3b4e, #1f2a37);
+    }
 
-        body {
-            background: linear-gradient(135deg, var(--bg-dark), var(--bg-darker));
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
+    /* Progress bar */
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background-color: #374151;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
 
-        .download-btn {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
+    .progress-bar-fill {
+      height: 100%;
+      background-color: #29b6f6; /* Electric blue */
+      width: 0%;
+      transition: width 0.5s ease;
+    }
 
-        .download-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: all 0.5s ease;
-        }
+    /* Popup */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 50;
+      display: none;
+    }
 
-        .download-btn:hover::before {
-            left: 100%;
-        }
+    .popup-content {
+      background-color: #111;
+      padding: 20px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 420px;
+      position: relative;
+      text-align: center;
+      color: white;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.6);
+    }
 
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
+    .popup .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      color: white;
+    }
 
-        .platform-icon {
-            animation: float 3s ease-in-out infinite;
-        }
+    /* Button Hover/Active effects */
+    .pulse-button {
+      animation: pulse 1.5s infinite;
+    }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-        }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
 
-        .feature-card {
-            transition: all 0.3s ease;
-        }
+    /* Button neon glow effect on hover */
+    .neon-button {
+      background: linear-gradient(45deg, #29b6f6, #64ffda);
+      color: white;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      padding: 16px 32px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 8px rgba(41, 182, 246, 0.8);
+      transition: all 0.3s ease;
+    }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.1);
-        }
+    .neon-button:hover {
+      box-shadow: 0 0 30px rgba(41, 182, 246, 1);
+      background: linear-gradient(45deg, #64ffda, #29b6f6);
+    }
 
-        .game-title {
-            background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: titleGradient 8s linear infinite;
-        }
+    .neon-button:active {
+      box-shadow: 0 0 40px rgba(41, 182, 246, 0.9);
+    }
 
-        @keyframes titleGradient {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 200% 50%; }
-        }
-    </style>
+    /* Mobile responsiveness */
+    @media (max-width: 640px) {
+      .popup-content {
+        width: 80%;
+      }
+
+      .progress-bar {
+        height: 6px;
+      }
+    }
+  </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
-    <div class="w-full max-w-xl bg-gray-900 rounded-2xl shadow-2xl overflow-hidden">
-        <div class="p-8 text-center">
-            <div class="mb-8">
-                <!-- <h1 class="text-5xl font-extrabold game-title mb-4"> -->
-                    <!-- Game Mod Download -->
-                <!-- </h1> -->
-                <p class="text-xl text-gray-400">Choose your platform To start Downloading Now!</p>
-            </div>
+<body>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <!-- iOS Download Button -->
-                <button onclick="_WT()" class="download-btn group bg-gradient-to-r from-blue-500 to-blue-600 p-6 rounded-xl text-white shadow-lg">
-                    <div class="flex flex-col items-center space-y-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 platform-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                        </svg>
-                        <div>
-                            <div class="text-sm mb-1" onclick="_WT()">Download for</div>
-                            <div class="text-xl font-bold" onclick="_WT()">iOS</div>
-                        </div>
-                    </div>
-                </button>
+  <div class="min-h-screen flex flex-col justify-center items-center p-6">
 
-                <!-- Android Download Button -->
-                <button onclick="_WT()" class="download-btn group bg-gradient-to-r from-green-500 to-green-600 p-6 rounded-xl text-white shadow-lg">
-                    <div class="flex flex-col items-center space-y-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 platform-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M16.61 15.15c-.46 0-.84-.37-.84-.84s.37-.84.84-.84.84.37.84.84-.37.84-.84.84m-9.22 0c-.46 0-.84-.37-.84-.84s.37-.84.84-.84.84.37.84.84-.37.84-.84.84m9.42-5.93l1.68-2.91c.09-.16.04-.36-.12-.45-.16-.09-.36-.04-.45.12l-1.71 2.96c-1.3-.57-2.78-.9-4.21-.9-1.43 0-2.91.33-4.21.9L6.08 5.04c-.09-.16-.29-.21-.45-.12-.16.09-.21.29-.12.45l1.68 2.91C3.86 9.92 2 12.68 2 15.5c0 4.69 4.47 5.5 10 5.5s10-.81 10-5.5c0-2.82-1.86-5.58-5.19-7.28z"/>
-                        </svg>
-                        <div>
-                            <div class="text-sm mb-1" onclick="_WT()">Download for</div>
-                            <div class="text-xl font-bold" onclick="_WT()">Android</div>
-                        </div>
-                    </div>
-                </button>
-            </div>
+    <!-- Main Landing Page Container -->
+    <div class="bg-gray-800 shadow-2xl rounded-2xl p-8 max-w-md w-full">
+      <h1 class="text-3xl font-bold text-center text-white mb-6">
+        Mod Games Download
+      </h1>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                <div class="feature-card bg-gray-800 p-4 rounded-xl">
-                    <div class="text-green-500 mb-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-white font-bold mb-1">100% Secure</h3>
-                    <p class="text-gray-400 text-sm">Verified and safe to install</p>
-                </div>
+      <!-- Download Section -->
+      <div class="bg-gray-700 border-2 border-gray-600 rounded-lg p-6 text-center">
+        <h2 class="text-2xl font-semibold text-indigo-500 mb-4">
+          Apk Mod Game is Ready!
+        </h2>
 
-                <div class="feature-card bg-gray-800 p-4 rounded-xl">
-                    <div class="text-blue-500 mb-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-white font-bold mb-1">Fast Download</h3>
-                    <p class="text-gray-400 text-sm">High-speed servers</p>
-                </div>
+        <button id="downloadButton" class="w-full py-3 rounded-lg text-white font-bold transition-all duration-300 neon-button pulse-button" onclick="_di()">
+          Unlock Game Mod Now!
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="inline-block ml-2" width="20" height="20">
+            <path d="M10 14l2-2 2 2M12 10v4m-9 8h18a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2z" />
+          </svg>
+        </button>
 
-                <div class="feature-card bg-gray-800 p-4 rounded-xl">
-                    <div class="text-purple-500 mb-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-white font-bold mb-1">24/7 Support</h3>
-                    <p class="text-gray-400 text-sm">Always here to help</p>
-                </div>
-            </div>
-
-            <div class="text-gray-400 text-sm">
-                By downloading, you agree to our Terms of Service and Privacy Policy
-            </div>
+        <!-- Download Progress Bar -->
+        <div id="progressContainer" class="mt-4 progress-bar hidden">
+          <div id="progressBar" class="progress-bar-fill"></div>
         </div>
+      </div>
+
+      <!-- Download Guide -->
+      <div class="mt-6">
+        <h3 class="text-xl font-semibold text-white mb-4">
+          Download Guide
+        </h3>
+        <ul class="space-y-3 text-white">
+          <li class="flex items-center"><span class="text-green-500">✔️</span> Click 'Unlock Game Mod Now' button</li>
+          <li class="flex items-center"><span class="text-green-500">✔️</span> Complete quick verification</li>
+          <li class="flex items-center"><span class="text-green-500">✔️</span> Wait for verification process</li>
+          <li class="flex items-center"><span class="text-green-500">✔️</span> Download starts automatically</li>
+        </ul>
+      </div>
+
+      <!-- Trust Indicators -->
+      <div class="mt-6 flex justify-center space-x-4 text-gray-300">
+        <div class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" class="mr-2">
+            <path d="M12 5V3m0 4V5m0 4V9m0 4V13m0 4V17m0 4V21" />
+          </svg>
+          <span>Secure</span>
+        </div>
+        <div class="flex items-center">
+          <span class="text-green-500">✔️</span>
+          <span>Verified</span>
+        </div>
+      </div>
     </div>
+
+    <!-- Exit-Intent Popup -->
+    <div id="exitPopup" class="popup">
+      <div class="popup-content">
+        <span id="closePopup" class="close-btn">✖️</span>
+        <h2 class="text-2xl font-bold text-indigo-500 mb-4">
+          Wait! Don't Miss Out
+        </h2>
+        <p class="text-white mb-6">
+          Apk Mod Game is Ready now!
+        </p>
+        <button id="continueDownloadButton" class="w-full py-3 neon-button" onclick="_di()">
+          Continue to Download
+        </button>
+      </div>
+    </div>
+
+    <footer class="mt-6 text-center text-gray-500">
+      © 2024 Mod Games Hub - All rights reserved
+    </footer>
+  </div>
+
+  <!-- JS to handle functionality -->
+  <script>
+    let downloadProgress = 0;
+    let isDownloading = false;
+
+    // Handle button click to start download
+    document.getElementById('downloadButton').addEventListener('click', () => {
+      startDownload();
+    });
+
+    // Simulate download progress
+    function startDownload() {
+      isDownloading = true;
+      document.getElementById('downloadButton').disabled = true;
+      document.getElementById('progressContainer').classList.remove('hidden');
+
+      let interval = setInterval(() => {
+        downloadProgress += 10;
+        document.getElementById('progressBar').style.width = downloadProgress + '%';
+
+        if (downloadProgress >= 100) {
+          clearInterval(interval);
+          setTimeout(() => {
+            isDownloading = false;
+            document.getElementById('downloadButton').disabled = false;
+          }, 1000);
+        }
+      }, 500);
+    }
+
+    // Show exit intent popup
+    document.addEventListener('mouseleave', (e) => {
+      if (e.clientY <= 0) {
+        document.getElementById('exitPopup').style.display = 'flex';
+      }
+    });
+
+    // Close the popup
+    document.getElementById('closePopup').addEventListener('click', () => {
+      document.getElementById('exitPopup').style.display = 'none';
+    });
+
+    // Continue download from the popup
+    document.getElementById('continueDownloadButton').addEventListener('click', () => {
+      startDownload();
+      document.getElementById('exitPopup').style.display = 'none';
+    });
+  </script>
 </body>
 </html>
